@@ -1,0 +1,9 @@
+node_modules
+**/node_modules
+**/.next
+**/dist
+backend/src/generated
+**/test-results
+**/playwright-report
+package-lock.json
+.local

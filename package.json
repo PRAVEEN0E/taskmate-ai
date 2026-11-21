@@ -1,0 +1,32 @@
+{
+  "name": "taskmate-ai",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w backend && npm run build -w frontend",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm run test -w backend",
+    "db:generate": "npm run db:generate -w backend",
+    "db:migrate": "npm run db:migrate -w backend",
+    "owner:setup": "npm run owner:setup -w backend",
+    "owner:recover": "npm run owner:recover -w backend"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "concurrently": "10.0.7",
+    "effect": "3.22.5",
+    "prettier": "3.10.1",
+    "typescript": "7.0.2"
+  },
+  "overrides": {
+    "effect": "3.22.5"
+  }
+}
