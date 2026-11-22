@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
+import Image from 'next/image';
 import {
   LayoutDashboard,
   CheckSquare,
@@ -120,11 +121,17 @@ export function Workspace({
           href="/dashboard"
           onClick={() => setSidebarOpen(false)}
         >
-          <span className="brand-icon group-hover:scale-105 transition-transform">
-            <Layers size={22} />
-          </span>
-          <span className="text-lg font-bold tracking-tight text-[#19183B]">
-            TaskMate<span className="ml-1 text-[#7864F6]">AI</span>
+          <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-2xl shadow-[4px_4px_10px_#c8c4e8,-3px_-3px_8px_#ffffff] border border-white/80 group-hover:scale-105 transition-transform">
+            <Image
+              src="/buddio-icon.png"
+              alt="Buddio"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <span className="text-xl font-extrabold tracking-tight text-[#19183B]">
+            Buddio
           </span>
         </Link>
 
@@ -232,7 +239,7 @@ export function Workspace({
           {children}
           <footer className="mt-14 hidden sm:flex justify-between border-t border-[#7864F6]/15 pt-6 text-xs font-medium text-[#666584]">
             <span>A little clarity. A little progress.</span>
-            <span>TaskMate AI · Soft 3D Claymorphism Suite</span>
+            <span>Buddio · Soft 3D Claymorphism Suite</span>
           </footer>
         </main>
 
