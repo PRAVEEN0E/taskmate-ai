@@ -66,6 +66,13 @@ export function Workspace({
     [notifications, setNotifications] = useState(false);
   const [session, setSession] = useState(initialSession);
 
+  // Initialize and synchronize CSRF token across page refreshes and navigations
+  useEffect(() => {
+    if (initialSession?.csrfToken) {
+      setCsrf(initialSession.csrfToken);
+    }
+  }, [initialSession]);
+
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
